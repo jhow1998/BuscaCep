@@ -33,7 +33,7 @@ class ViaCEP{
         $array = json_decode($response,true);
         
         //RETORNA O CONTÉUDO EM ARRAY
-        return isset($array['cep']) ? $array : null;
+         return isset($array['cep']) ? $array : null;
 
 
     }

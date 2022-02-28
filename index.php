@@ -5,9 +5,14 @@
     use \App\WebService\ViaCEP;
 
     
-    $recebe = $_POST['CEP'];
+    $recebe = isset($_POST['CEP']) ? $_POST['CEP']:null; 
 
-    $dadosCEP = ViaCEP::consultaCEP($_POST['CEP']);
+    $dadosCEP = ViaCEP::consultaCEP($recebe);
+
+   
+    
+
+    
 
   
   
@@ -55,14 +60,14 @@
                     <input  name="CEP" type="text">
 
                     <label class="ms-2">Rua</label>
-                    <input  value="<?=$dadosCEP['logradouro']?>" type="text">
+                    <input  value="<?=isset($dadosCEP['logradouro']) ?$dadosCEP['logradouro']:null?>" type="text">
                     
                     <label class="ms-2">Bairro</label>
-                    <input value="<?=$dadosCEP['bairro']?>"type="text">
+                    <input value="<?=isset($dadosCEP['bairro']) ?$dadosCEP['bairro']:null?>"type="text">
 
                     <div class="mt-4 ">
                         <label>Estado</label>
-                        <input value="<?=$dadosCEP['uf']?>"type="text">
+                        <input value="<?=isset($dadosCEP['uf']) ?$dadosCEP['uf']:null ?>"type="text">
                         
                         <label class="ms-2">Complemento</label>
                         <input type="text">
